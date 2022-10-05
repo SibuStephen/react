@@ -10,13 +10,15 @@
   "scripts": {
     "build": "rm -rf build; babel transforms/ --out-dir=build/",
     "test": "jest",
-    "prepublish": "npm run build"
+    "prepublish": "npm run snyk-protect && npm run build",
+    "snyk-protect": "snyk-protect"
   },
   "bin": {
     "react-codemod": "./react-codemod"
   },
   "dependencies": {
-    "jscodeshift": "^0.1.0"
+    "jscodeshift": "^0.3.23",
+    "@snyk/protect": "latest"
   },
   "devDependencies": {
     "babel": "^4.7.16",
@@ -28,5 +30,6 @@
     "testPathDirs": [
       "test"
     ]
-  }
+  },
+  "snyk": true
 }
